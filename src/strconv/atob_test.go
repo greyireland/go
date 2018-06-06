@@ -15,7 +15,7 @@ type atobTest struct {
 	out bool
 	err error
 }
-
+//TODO 构建一个对象数组来测试
 var atobtests = []atobTest{
 	{"", false, ErrSyntax},
 	{"asdf", false, ErrSyntax},

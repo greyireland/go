@@ -34,6 +34,7 @@ func (r *Reader) Len() int {
 // to any other method.
 func (r *Reader) Size() int64 { return int64(len(r.s)) }
 
+//todo reader很像kafka的队列，从某个地方开始读取，读取一段就记一个读取偏移量，下次从这个偏移量继续读取
 func (r *Reader) Read(b []byte) (n int, err error) {
 	if r.i >= int64(len(r.s)) {
 		return 0, io.EOF
@@ -123,6 +124,7 @@ func (r *Reader) Seek(offset int64, whence int) (int64, error) {
 	return abs, nil
 }
 
+//todo 把当前可见的数据写到writer中
 // WriteTo implements the io.WriterTo interface.
 func (r *Reader) WriteTo(w io.Writer) (n int64, err error) {
 	r.prevRune = -1
@@ -148,3 +150,5 @@ func (r *Reader) Reset(s string) { *r = Reader{s, 0, -1} }
 // NewReader returns a new Reader reading from s.
 // It is similar to bytes.NewBufferString but more efficient and read-only.
 func NewReader(s string) *Reader { return &Reader{s, 0, -1} }
+
+//todo 字符串的reader适用于什么场景？如果需要单个byte自己转换为[]byte(str)就可以取单个字符了！！！实现统一的reader接口？？？

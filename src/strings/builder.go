@@ -9,6 +9,7 @@ import (
 	"unsafe"
 )
 
+// TODO 类似Java中的StringBuilder，预分配空间然后append，不用每次重新申请空间然后赋值
 // A Builder is used to efficiently build a string using Write methods.
 // It minimizes memory copying. The zero value is ready to use.
 // Do not copy a non-zero Builder.

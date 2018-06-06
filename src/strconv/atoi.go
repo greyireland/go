@@ -142,7 +142,7 @@ func ParseUint(s string, base int, bitSize int) (uint64, error) {
 // For bases 1, below 0 or above 36 an error is returned.
 //
 // The bitSize argument specifies the integer type
-// that the result must fit into. Bit sizes 0, 8, 16, 32, and 64
+// that the result must fit into. Bit sizes 0, 8, 16, 32, and 64(0表示int，及表示int32默认)
 // correspond to int, int8, int16, int32, and int64.
 // For a bitSize below 0 or above 64 an error is returned.
 //
