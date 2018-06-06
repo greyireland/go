@@ -131,6 +131,7 @@ type ComplexType complex64
 //	slice = append(slice, anotherSlice...)
 // As a special case, it is legal to append a string to a byte slice, like this:
 //	slice = append([]byte("hello "), "world"...)
+//todo 允许两种append方式 1.分开e1,e2 2.合并append e...
 func append(slice []Type, elems ...Type) []Type
 
 // The copy built-in function copies elements from a source slice into a
@@ -138,6 +139,7 @@ func append(slice []Type, elems ...Type) []Type
 // string to a slice of bytes.) The source and destination may overlap. Copy
 // returns the number of elements copied, which will be the minimum of
 // len(src) and len(dst).
+//todo 将一个数组覆盖到另外一个数组上面，返回覆盖的长度（覆盖覆盖覆盖!!!!）
 func copy(dst, src []Type) int
 
 // The delete built-in function deletes the element with the specified key
